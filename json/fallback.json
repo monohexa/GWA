@@ -1,8 +1,5 @@
 {
     "gradeProfile": "Error",
-    "desc": "Uh oh!",
-    "subjects": [
-        ["test", "No such grade system exists!", 67],
-        ["test2", "Find a suitable grade system.", 33, true]
-    ]
+    "desc": "Uh oh! No such grade system exists. Click on the existing grade systems to calculate.",
+    "subjects": []
 }

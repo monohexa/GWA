@@ -1,4 +1,4 @@
-const DEFAULT = "json/home.json"
+const DEFAULT = "json/fallback.json"
 
 const searchParams = new URLSearchParams(location.search);
 const name = searchParams.get("data");
@@ -14,7 +14,7 @@ export async function loadJSON(jsonFile = DATA) {
     } catch (error) {
         console.error(`No JSON named ${jsonFile}`, error)
     }
-    const fallback = await fetch("json/fallback.json")
+    const fallback = await fetch(DEFAULT)
     return await fallback.json();
 }
 
@@ -57,3 +57,17 @@ export function waitForElement(id, timeout = 5000) {
         }, timeout);
     });
 }
+
+function footer() {
+    const footerArea = document.getElementById("outerFooter");
+    if (!footerArea) return;
+
+    const p1 = document.createElement("p");
+    p1.textContent = "The GWA Calculator is created by Marion Dominic Caleon of PSHS-CLC Batch 2030";
+    const p2 = document.createElement("p");
+    p2.textContent = "This website is not affiliated with PSHS-CLC, DOST-PSHSS, DOST, or the Republic of the Philippines in any way.";
+    footerArea.appendChild(p1);
+    footerArea.appendChild(p2);
+}
+
+footer();

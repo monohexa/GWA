@@ -47,9 +47,10 @@ import { loadJSON, gradeForms } from "./global.js";
             const gradeSystem = await loadJSON();
             console.log(gradeSystem.desc);
             document.getElementById("desc").innerHTML = gradeSystem.desc;
-            document.title = `GWA Calculator - ${gradeSystem.gradeProfile}`
-            const gradeTable = tableCreate(gradeSystem)
-            document.getElementById("content").appendChild(gradeTable)
+            document.title = `GWA Calculator - ${gradeSystem.gradeProfile}`;
+            document.getElementById("title").textContent = gradeSystem.gradeProfile;
+            const gradeTable = tableCreate(gradeSystem);
+            document.getElementById("content").appendChild(gradeTable);
         } catch (error) {
             console.error(error);
         }

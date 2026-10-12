@@ -16,20 +16,39 @@ h2 {
   font-weight: 300;
 }
 
+#outerFooter {
+  padding: 0.4em;
+  margin: 0 0.5em 1em;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #444;
+  color: #ccc;
+  width: 100%;
+}
+
+#outerFooter p {
+  text-align: center;
+  margin: 0.2em;
+}
+
 #topbar {
   display: flex;
   background-color: #eeed;
   color: #222;
   padding: 0.4em;
-  margin: 0.5em 1em;
+  margin: 0.5em 0 1em;
   align-items: center;
   width: 100%;
-  position:sticky;
+  position: sticky;
   z-index: 9999;
   top: 0;
 }
 
-#topbar a, #topbar a:link, #topbar a:visited, #topbar a:active {
+#topbar a, #topbar a:link, #topbar a:visited, #topbar a:active, a.button, a.button:active, a.button:visited, a.button:link {
   text-decoration: none;
   padding: 0.5em;
   margin-left: 0.25em;
@@ -38,11 +57,13 @@ h2 {
   transition: color 100ms, background 100ms;
   display: flex;
   align-items: center;
+  width: max-content;
 }
 
-#topbar a:hover {
+#topbar a:hover, a.button:hover {
   color: #333;
   background-color: #ddd;
+  width: max-content;
 }
 
 #content {
@@ -166,4 +187,18 @@ h2 {
 
 #footer div div#gwa.bad {
   color:#f00
+}
+
+li {
+  text-decoration: none;
+  color: #fff;
+}
+
+li a, li a:link, li a:active, li a:visited {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+li a:hover {
+  text-decoration: underline;
 }

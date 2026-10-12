@@ -1,8 +1,0 @@
-{
-    "gradeProfile": "Home",
-    "desc": "Welcome to the GWA Calculator!",
-    "subjects": [
-        ["test", "Click on a Grade System", 67],
-        ["test2", "To calculate your GWA!", 33, true]
-    ]
-}
