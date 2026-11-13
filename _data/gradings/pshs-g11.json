@@ -1,6 +1,8 @@
 {
-    "gradeProfile": "PSHS Grade 11",
-    "desc": "This calculator can obtain the estimated GWA of a PSHS Grade 11 scholar.",
+    "title": "PSHS Grade 11",
+    "desc": "Grading System for a PSHSS Grade 11 Scholar.",
+    "icon": "pshs.png",
+    "academic_time_division": 4,
     "subjects": [
         ["bio", "Biology", 1.7],
         ["chem", "Chemistry", 1.7],

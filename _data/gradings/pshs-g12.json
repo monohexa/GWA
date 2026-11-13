@@ -1,6 +1,8 @@
 {
-    "gradeProfile": "PSHS Grade 12",
-    "desc": "This calculator can obtain the estimated GWA of a PSHS Grade 12 scholar.",
+    "title": "PSHS Grade 12",
+    "desc": "Grading System for a PSHSS Grade 12 Scholar.",
+    "icon": "pshs.png",
+    "academic_time_division": 4,
     "subjects": [
         ["stem1", "STEM Course 1", 1.7],
         ["stem2", "STEM Course 2", 1.7],

@@ -1,23 +1,36 @@
+---
+title: Home
+---
+
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="styles.css">
-        <title>GWA Calculator</title>
-        <script src="js/global.js" defer type="module"></script>
-        <script src="https://kit.fontawesome.com/683aff844a.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div id="topbar">
-            <a href=""><i class="fa-solid fa-calculator">CalcIcon</i>GWA Calculator</a>
-            <a href="list.html">Available Gradings</a>
-            <a style="margin-left: auto;" href="https://monohexa.github.io">Credits</a>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>{{ page.title }} - {{ site. title }}</title>
+    <link rel="stylesheet" href="{{ "/assets/css/index.css" | relative_url }}">
+  </head>
+  <body>
+    {% include nav.html %}
+    <div id="content">
+        <h1>GWA Calculator</h1>
+        <p>Hello, and welcome to the GWA Calculator. Choose a grading system to calculate your estimated grade.</p>
+        <div id="scrollable">
+            {% for item in site.data.gradings %}
+              {% assign grading = item[1] %}
+              {% assign slug = item[0] %}
+                <div class="scrollsection">
+                    <div id="img">
+                      <img src="{{"/assets/images/" | append: grading.icon |relative_url}}" style="max-height: 3em;" alt="Logo">
+                    </div>
+                    <div id="p">
+                      <p><a href="{{'/grading/'| relative_url}}{{ slug | uri_escape }}">{{ grading.title }}</a></p>
+                      <p>{{ grading.desc }}</p>
+                    </div>
+                </div>
+            {% endfor %}    
         </div>
-        <div id="content">
-            <h2 id="title">GWA Calculator</h2>
-            <p>Welcome to the GWA Calculator, a pseudo-universal calculator for General Weighted Average grades, particularly in PSHSS.</p>
-            <a class="button" href="list.html">List of Grades</a>
-        </div>
-        <noscript>GWA CALCULATOR REQUIRES JAVASCRIPT, ENABLE IT IN YOUR BROWSER SETTINGS!</noscript>
-        <div id="outerFooter"></div>
-    </body>
+    </div>
+    {% include footer.html %}
+  </body>
 </html>

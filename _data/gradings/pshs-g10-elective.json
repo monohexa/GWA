@@ -1,6 +1,9 @@
 {
-    "gradeProfile": "PSHS Grade 10",
-    "desc": "This calculator can obtain the estimated GWA of a PSHS Grade 10 scholar.",
+    "title": "PSHS Grade 10 - Elective",
+    "desc": "Grading System for a PSHSS Grade 10 Scholar, with electives.",
+    "icon": "pshs.png",
+    "alternate_variants": [["pshs-g10-a", "Grade 10"]],
+    "academic_time_division": 4,
     "subjects": [
         ["bio", "Biology", 1.7],
         ["chem", "Chemistry", 1.7],

@@ -1,6 +1,8 @@
 {
-    "gradeProfile": "PSHS Grade 7",
-    "desc": "This calculator can obtain the estimated GWA of a PSHS Grade 7 scholar.",
+    "title": "PSHS Grade 7",
+    "desc": "Grading System for a PSHSS Grade 7 Scholar.",
+    "icon": "pshs.png",
+    "academic_time_division": 4,
     "subjects": [
         ["is", "Integrated Science", 1.7],
         ["es", "Earth Science", 1],

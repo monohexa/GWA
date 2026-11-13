@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+$text: #000000;
+$background: #d0d0d0;
+$text-dark: #efefef;
+$background-dark: #202020;
+$font: Lato, sans-serif;
+$phone-width: 576px;
+$tab-width: 768px;
+
+body {
+    color: $text;
+    background: $background;
+    font-family: $font;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    align-content: center;
+    margin: 1em;
+}
+
+nav a {
+    color: $text-dark;
+    background-color: $background-dark;
+    padding: 0.8em;
+    text-decoration: none;
+    transition: color 100ms, background-color 100ms;
+}
+
+nav a:hover {
+    color: $text;
+    background-color: rgba($background-dark,0.1);
+    padding: 0.8em;
+    text-decoration: none;
+    transition: color 100ms, background-color 100ms;
+}
+
+div#content {
+    width: 70%;
+    margin: 0 auto;
+    overflow-x: auto;
+    flex: 1;
+    margin-bottom: 2em;
+}
+
+@media (max-width: $phone-width) {
+    div#content {
+        width: 100%;
+    }
+}
+
+@media (max-width: $tab-width) {
+    div#content {
+        width: 95%;
+    }
+}
+
+footer {
+    color: $text-dark;
+    background: $background-dark;
+    text-align: center;
+}
+
+footer a {
+    color: $text-dark;
+}
