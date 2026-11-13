@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>{{ page.grading.title }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <script type="application/json" id="grading-data">
+      {{ page.grading | jsonify }}
+    </script>
+    <script defer src="{{"/assets/js/tableBuilder.js" | relative_url}}"></script>
+    <script defer src="{{"/assets/js/calculator.js" | relative_url}}"></script>
+    <script type="module" defer src="{{"/assets/js/selector.js" | relative_url}}"></script>
+    <script type="module" src="{{"/assets/js/inputBuilder.js" | relative_url}}"></script>
+  </head>
+  <body>
+    {% include nav.html %}
+    <div id="content">
+        <h1 id="a-title">LOADING GRADING</h1>
+        <p id="a-desc">If it does not load, enable JS. Otherwise, you can suggest it through an issue request.</p>
+        <div id="table">
+          <div id="header">
+          <div class="row">
+            <div class="cell title">Subject</div>
+            <div class="cell">Units</div>
+            <div class="cell" id="headFinal">FINAL</div>
+          </div>
+          </div>
+          <div id="body">
+            <!-- subject and quarter-->
+          </div>
+          <div id="footer">
+            <div class="row">
+            <div class="cell title">GWA</div>
+            <div class="cell" id="gwaUnit">&mdash;</div>
+            <div class="cell" id="gwa">1.00</div>
+            </div>
+          </div>
+        </div>
+    </div>
+    {% include footer.html %}
+  </body>
+</html>

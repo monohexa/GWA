@@ -1,4 +1,48 @@
 ---
 ---
 
-@import "base";
+@import "core", "selector";
+
+#table {display: grid; width: fit-content;}
+.row, .semesters, #header, #footer, #body {
+    display: contents;
+}
+
+#table {
+    color: #1f1f1f;
+    border: 0.1em solid #555;
+    background-color: #c0c0c0;
+}
+
+.cell {
+    box-sizing: border-box;
+    padding: 0.5em;
+    border-left: 0.05em solid #0008;
+    vertical-align: middle;
+}
+
+#body .cell {
+    border-top: 0.05em solid #000;
+}
+
+.cell.title {
+    border: none;
+}
+
+.semesters .cell {
+  box-sizing: border-box;
+}
+
+#header .cell {
+    background-color: #efefef;
+    border-bottom: 0.1em solid #000;
+}
+
+#footer .cell {
+    background-color: #cfcfcf;
+    border-top: 0.1em solid #000;
+}
+
+.transmuted {
+    font-weight: 700;
+}

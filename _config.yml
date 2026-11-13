@@ -2,5 +2,6 @@ url: "https://monohexa.github.io" # the base hostname & protocol for your site, 
 baseurl: "/GWA" # the subpath of your site, e.g. /blog
 title: "GWA Calculator" # the name of your site, e.g. ACME Corp.
 
-plugins:
-  - jekyll-coffeescript
+exclude:
+ - _coffeeConvert
+

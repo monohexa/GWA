@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>PSHS Grade 7 - GWA Calculator</title>
+    <link rel="stylesheet" href="/GWA/assets/css/main.css">
+    <script type="application/json" id="grading-data">
+      {"title":"PSHS Grade 7","desc":"Grading System for a PSHSS Grade 7 Scholar.","icon":"pshs.png","academic_time_division":4,"subjects":[["is","Integrated Science",1.7],["es","Earth Science",1],["cs","Computer Science",1],["math","Mathematics",1.7],["adt","ADTech",1],["eng","English",1.3],["fil","Filipino",1],["ss","Social Sciences",1],["pehm","PEHM",1],["val","Values Education",0.7,true]]}
+    </script>
+    <script defer src="/GWA/assets/js/tableBuilder.js"></script>
+    <script defer src="/GWA/assets/js/calculator.js"></script>
+    <script type="module" defer src="/GWA/assets/js/selector.js"></script>
+    <script type="module" src="/GWA/assets/js/inputBuilder.js"></script>
+  </head>
+  <body>
+    <nav>
+    <a href="/GWA/">Home</a>
+    <a href="http://localhost:4000/">Main Site</a>
+    <a style="margin-left: auto;" href="https://github.com/monohexa/GWA">Source</a>
+</nav>
+    <div id="content">
+        <h1 id="a-title">LOADING GRADING</h1>
+        <p id="a-desc">If it does not load, enable JS. Otherwise, you can suggest it through an issue request.</p>
+        <div id="table">
+          <div id="header">
+          <div class="row">
+            <div class="cell title">Subject</div>
+            <div class="cell">Units</div>
+            <div class="cell" id="headFinal">FINAL</div>
+          </div>
+          </div>
+          <div id="body">
+            <!-- subject and quarter-->
+          </div>
+          <div id="footer">
+            <div class="row">
+            <div class="cell title">GWA</div>
+            <div class="cell" id="gwaUnit">&mdash;</div>
+            <div class="cell" id="gwa">1.00</div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <footer>
+    <p>Created by MonoChronos.</p>
+    <p>Email: <a href="mailto:contact.monoc@gmail.com">contact.monoc@gmail.com</a></p>
+</footer>
+  </body>
+</html>

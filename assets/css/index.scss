@@ -1,0 +1,52 @@
+---
+---
+
+@import "core";
+
+#scrollable {
+    overflow-y: auto;
+    height: 15em;
+    background-color: rgba($background-dark, 0.4);
+    color: $text-dark;
+    padding: 1em;
+    height: 60vh;
+}
+
+.scrollsection {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    background-color: rgb($background-dark, 0.2);
+    margin-bottom: 1em;
+}
+
+.scrollsection a {
+    color: $text-dark;
+    text-decoration: none;
+    transition: color 100ms;
+}
+
+.scrollsection a:hover {
+    color: $background;
+}
+
+.scrollsection div#img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: $phone-width) {
+    .scrollsection div#p {
+        flex-basis: 60%;
+    }
+}
+@media (max-width: $tab-width) {
+    .scrollsection div#p {
+        flex-basis: 70%;
+    }
+}
+
+.scrollsection div#p {
+    flex-basis: 80%;
+}
