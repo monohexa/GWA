@@ -69,6 +69,20 @@
   };
 
   init = function() {
+    var alternate, i, len, link, navBar, ref;
+    if (grading.alternate_variants) {
+      ref = grading.alternate_variants;
+      for (i = 0, len = ref.length; i < len; i++) {
+        alternate = ref[i];
+        navBar = document.getElementById("alt-variants");
+        link = document.createElement('a');
+        link.text = alternate[1];
+        link.href = `/GWA/grading/${alternate[0]}`;
+        navBar.append(link);
+      }
+    } else {
+      document.getElementById("alt-variants").remove();
+    }
     document.getElementById("a-title").textContent = grading.title;
     document.getElementById("a-desc").textContent = grading.desc;
     createTableElements(grading);

@@ -64,6 +64,15 @@ createTableElements = (system) ->
     return
 
 init = () ->
+    if grading.alternate_variants
+        for alternate in grading.alternate_variants
+            navBar = document.getElementById "alt-variants"
+            link = document.createElement 'a'
+            link.text = alternate[1]
+            link.href = "/GWA/grading/#{alternate[0]}"
+            navBar.append link
+    else
+        document.getElementById("alt-variants").remove()
     document.getElementById("a-title").textContent = grading.title
     document.getElementById("a-desc").textContent = grading.desc
     createTableElements grading

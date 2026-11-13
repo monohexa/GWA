@@ -1,0 +1,21 @@
+{
+    "title": "PSHS Grade 10 - Elective",
+    "desc": "Grading System for a PSHSS Grade 10 Scholar, with electives.",
+    "icon": "pshs.png",
+    "alternate_variants": [["pshs-g10-a", "Grade 10"]],
+    "academic_time_division": 4,
+    "subjects": [
+        ["bio", "Biology", 1.7],
+        ["chem", "Chemistry", 1.7],
+        ["phys", "Physics", 1.7],
+        ["opt", "Elective", 1],
+        ["cs", "Computer Science", 1],
+        ["math", "Mathematics", 1],
+        ["stat", "Statistics", 1],
+        ["eng", "English", 1],
+        ["fil", "Filipino", 1],
+        ["ss", "Social Sciences", 1],
+        ["pehm", "PEHM", 1],
+        ["val", "Values Education", 0.7, true]
+    ]
+}

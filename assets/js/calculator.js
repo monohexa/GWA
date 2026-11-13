@@ -36,11 +36,10 @@
   };
 
   updateGWA = function() {
-    var currentG, display, div, final, finalDisplay, finalGWA, gwaDenominator, i, id, j, len, pastG, q, qGWADisplay, quarterGWA, ref, ref1, showFinal, subject, tempNumerator, unit;
+    var complete, counted, currentG, display, div, final, finalDisplay, finalGWA, gwaDenominator, i, id, j, len, pastG, q, qGWADisplay, quarterGWA, ref, ref1, showFinal, subject, tempNumerator, unit;
     if (!grading) {
       return;
     }
-    gwaDenominator = 0;
     div = grading.academic_time_division;
     showFinal = function(e, val) {
       if (!e) {
@@ -53,35 +52,40 @@
       }
     };
     for (q = i = 1, ref = div; (1 <= ref ? i <= ref : i >= ref); q = 1 <= ref ? ++i : --i) {
+      gwaDenominator = 0;
       tempNumerator = 0;
+      complete = true;
       ref1 = grading.subjects;
       for (j = 0, len = ref1.length; j < len; j++) {
         subject = ref1[j];
         id = subject[0];
-        unit = subject[1];
-        gwaDenominator += unit;
+        unit = parseFloat(subject[2]);
+        counted = subject[3] !== true;
         currentG = reader(`${q}q-${id}`);
-        pastG = q === 1 && typeof currentG === "number" ? currentG : reader(`${q - 1}q-${id}`);
+        pastG = q === 1 ? currentG : reader(`${q - 1}q-${id}`);
         display = document.getElementById(`${q}q-${id}-trans`);
-        if (!display) {
-          continue;
-        }
-        final = typeof currentG !== "number" ? currentG : typeof pastG === "number" ? transmute((pastG + 2 * currentG) / 3) : transmute(currentG);
         finalDisplay = document.getElementById(`${id}-final`);
+        final = typeof currentG !== "number" ? currentG : typeof pastG === "number" ? transmute((pastG + 2 * currentG) / 3) : transmute(currentG);
         showFinal(display, final);
         if (q === div) {
           showFinal(finalDisplay, final);
         }
-        if (!subject[3]) {
-          tempNumerator += final * unit;
+        if (counted) {
+          if (typeof final === "number") {
+            tempNumerator += final * unit;
+            gwaDenominator += unit;
+          } else if (final === null) {
+            complete = false;
+          }
         }
       }
-      quarterGWA = tempNumerator / gwaDenominator;
+      console.log(q, complete, gwaDenominator, JSON.stringify(grading.subjects));
+      quarterGWA = complete && gwaDenominator > 0 ? tempNumerator / gwaDenominator : null;
       qGWADisplay = document.getElementById(`${q}-gwa-trans`);
       finalGWA = document.getElementById("gwa");
       showFinal(qGWADisplay, quarterGWA);
       if (q === div) {
-        showFinal(qGWADisplay, finalGWA);
+        showFinal(finalGWA, quarterGWA);
       }
     }
   };

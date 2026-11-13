@@ -31,7 +31,6 @@ reader = (id) ->
 
 updateGWA = () ->
     return unless grading
-    gwaDenominator = 0
     div = grading.academic_time_division
 
     showFinal = (e, val) ->
@@ -42,15 +41,20 @@ updateGWA = () ->
             e.innerHTML = "&mdash;"
 
     for q in [1..div]
+        gwaDenominator = 0
         tempNumerator = 0
+        complete = true
+
         for subject in grading.subjects 
             id = subject[0]
-            unit = subject[1]
-            gwaDenominator += unit
+            unit = parseFloat subject[2]
+            counted = subject[3] isnt true
+
             currentG = reader "#{q}q-#{id}"
-            pastG = if q is 1 and typeof currentG is "number" then currentG else reader "#{q-1}q-#{id}"
+            pastG = if q is 1 then currentG else reader "#{q-1}q-#{id}"
+
             display = document.getElementById "#{q}q-#{id}-trans"
-            continue unless display
+            finalDisplay = document.getElementById "#{id}-final"
 
             final =
                 if typeof currentG isnt "number"
@@ -59,16 +63,22 @@ updateGWA = () ->
                     transmute ((pastG + 2*currentG)/3)
                 else
                     transmute currentG
-            
-            finalDisplay = document.getElementById "#{id}-final"
+
             showFinal display, final
             showFinal finalDisplay, final if q is div
-            tempNumerator += final*unit if not subject[3]
-        quarterGWA = tempNumerator/gwaDenominator
+
+            if counted
+                if typeof final is "number"
+                    tempNumerator += (final * unit)
+                    gwaDenominator += unit
+                else if final is null
+                    complete = false
+        console.log q, complete, gwaDenominator, JSON.stringify(grading.subjects)
+        quarterGWA = if complete and gwaDenominator > 0 then tempNumerator / gwaDenominator else null
         qGWADisplay = document.getElementById "#{q}-gwa-trans"
         finalGWA = document.getElementById "gwa"
         showFinal qGWADisplay, quarterGWA
-        showFinal qGWADisplay, finalGWA if q is div
+        showFinal finalGWA, quarterGWA if q is div
     return
 
 document.addEventListener "selects-ready", updateGWA
