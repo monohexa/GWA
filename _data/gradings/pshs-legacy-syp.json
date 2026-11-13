@@ -1,0 +1,15 @@
+{
+    "title": "PSHS Specialization Years - CRBL",
+    "desc": "Grading System for a PSHSS Grade 11 and 12 Scholar, used during the Curriculum for Remote and Blended Learning system.",
+    "icon": "pshs.png",
+    "academic_time_division": 4,
+    "subjects": [
+        ["stem1", "STEM Core", 1.7],
+        ["stem2", "STEM Course", 1.7],
+        ["res", "Research", 2],
+        ["math", "Mathematics", 1],
+        ["eng", "English", 1],
+        ["fil", "Filipino", 1],
+        ["ss", "Social Sciences", 1]
+    ]
+}

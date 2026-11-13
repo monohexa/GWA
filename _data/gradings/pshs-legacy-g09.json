@@ -1,0 +1,19 @@
+{
+    "title": "PSHS Grade 9 - CRBL",
+    "desc": "Grading System for a PSHSS Grade 9 Scholar, used during the Curriculum for Remote and Blended Learning system.",
+    "icon": "pshs.png",
+    "academic_time_division": 4,
+    "subjects": [
+        ["bio", "Biology", 1],
+        ["chem", "Chemistry", 1],
+        ["phys", "Physics", 1],
+        ["cs", "Computer Science", 1],
+        ["math", "Mathematics", 1],
+        ["stat", "Statistics", 1],
+        ["eng", "English", 1],
+        ["fil", "Filipino", 1],
+        ["ss", "Social Sciences", 1],
+        ["pehm", "PEHM", 1],
+        ["val", "Values Education", 0.7, true]
+    ]
+}
