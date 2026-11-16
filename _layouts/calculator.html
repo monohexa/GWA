@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
+    {% include head.html %}
     <title>{{ page.grading.title }} - {{ site.title }}</title>
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
     <script type="application/json" id="grading-data">
@@ -12,12 +11,11 @@
     <script defer src="{{"/assets/js/calculator.js" | relative_url}}"></script>
     <script type="module" defer src="{{"/assets/js/selector.js" | relative_url}}"></script>
     <script type="module" src="{{"/assets/js/inputBuilder.js" | relative_url}}"></script>
-    <script src="https://kit.fontawesome.com/683aff844a.js" crossorigin="anonymous"></script>
   </head>
   <body>
     {% include nav.html %}
     <div id="content">
-        <h1 id="a-title"><img src="{{"/assets/images/" | append: page.grading.icon |relative_url}}"/>LOADING GRADING</h1>
+        <img src="{{"/assets/images/" | append: page.grading.icon |relative_url}}"/><h1 id="a-title">LOADING GRADING</h1>
         <nav id="alt-variants"></nav>
         <p id="a-desc">If it does not load, enable JS. Otherwise, you can suggest it through an issue request.</p>
         <div id="table">
