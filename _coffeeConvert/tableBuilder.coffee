@@ -73,7 +73,7 @@ init = () ->
             navBar.append link
     else
         document.getElementById("alt-variants").remove()
-    document.getElementById("a-title").textContent = grading.title
+    document.getElementById("a-title").innerHTML = "<img src="{{"/assets/images/" | append: page.grading.icon |relative_url}}"/>#{grading.title}"
     document.getElementById("a-desc").textContent = grading.desc
     createTableElements grading
     return
