@@ -83,7 +83,7 @@
     } else {
       document.getElementById("alt-variants").remove();
     }
-    document.getElementById("a-title").innerHTML = `<img src="/assets/images/"${grading.icon}"/>${grading.title}`;
+    document.getElementById("a-title").innerHTML = `<img src="/assets/images/${grading.icon}"/>${grading.title}`; /* istg */
     document.getElementById("a-desc").textContent = grading.desc;
     createTableElements(grading);
   };
