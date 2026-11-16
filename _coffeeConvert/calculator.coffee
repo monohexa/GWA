@@ -29,6 +29,12 @@ reader = (id) ->
     value = Number raw
     if isNaN value then raw else value
 
+readerTrans = (id) ->
+    trans = document.getElementById(id)
+    return null unless trans
+    value = Number trans.textContent
+    if isNaN value then trans else value
+
 updateGWA = () ->
     return unless grading
     div = grading.academic_time_division
@@ -51,7 +57,7 @@ updateGWA = () ->
             counted = subject[3] isnt true
 
             currentG = reader "#{q}q-#{id}"
-            pastG = if q is 1 then currentG else reader "#{q-1}q-#{id}"
+            pastG = if q is 1 then currentG else readerTrans "#{q-1}q-#{id}-trans"
 
             display = document.getElementById "#{q}q-#{id}-trans"
             finalDisplay = document.getElementById "#{id}-final"
